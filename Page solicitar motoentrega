@@ -1,0 +1,259 @@
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+export default function Component() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="w-full py-12 md:py-24 lg:py-32 border-y">
+        <div className="container px-4 md:px-6 space-y-10 xl:space-y-16">
+          <div className="grid max-w-3xl mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
+            <div>
+              <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl">
+                Delivery on Demand
+              </h1>
+              <p className="mx-auto max-w-xl text-muted-foreground md:text-xl">
+                Get anything delivered fast and reliably with our motorcycle courier service.
+              </p>
+              <div className="mt-6">
+                <Button size="lg" className="bg-primary text-primary-foreground">
+                  Request Now
+                </Button>
+              </div>
+            </div>
+            <div className="flex flex-col items-start space-y-4">
+              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Delivery Made Easy</div>
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary text-primary-foreground rounded-full w-10 h-10 flex items-center justify-center">
+                    <BoltIcon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">Fast</h3>
+                    <p className="text-muted-foreground">Get your items delivered in a flash.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary text-primary-foreground rounded-full w-10 h-10 flex items-center justify-center">
+                    <TruckIcon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">Reliable</h3>
+                    <p className="text-muted-foreground">Dependable delivery you can count on.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary text-primary-foreground rounded-full w-10 h-10 flex items-center justify-center">
+                    <MapPinIcon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">Real-time Tracking</h3>
+                    <p className="text-muted-foreground">Monitor your delivery in real-time.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Delivery Request Form */}
+      <section className="w-full py-12 md:py-24 lg:py-32">
+        <div className="container px-4 md:px-6">
+          <div className="grid gap-6 md:gap-8">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Request a Delivery</h2>
+                <p className="max-w-2xl text-muted-foreground md:text-xl lg:text-base">
+                  Fill out the form below to request a delivery. Our motorcycle couriers will pick up your item and
+                  deliver it to the desired location.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-2xl gap-6">
+              <form className="grid gap-4">
+                <div className="grid gap-2">
+                  <Label htmlFor="pickup-location">Pickup Location</Label>
+                  <Input id="pickup-location" placeholder="Enter pickup address" required />
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="delivery-location">Delivery Location</Label>
+                  <Input id="delivery-location" placeholder="Enter delivery address" required />
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="item-description">Item Description</Label>
+                  <Textarea id="item-description" placeholder="Describe the item" required />
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="contact-info">Contact Information</Label>
+                  <Input id="contact-info" placeholder="Enter your name and phone number" required />
+                </div>
+                <Button type="submit" size="lg" className="bg-primary text-primary-foreground">
+                  Request Delivery
+                </Button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Active Deliveries Section */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+        <div className="container px-4 md:px-6">
+          <div className="grid gap-6 md:gap-8">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Active Deliveries</h2>
+                <p className="max-w-2xl text-muted-foreground md:text-xl lg:text-base">
+                  Check the status of your active deliveries.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-2xl gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Delivery #1234</CardTitle>
+                  <CardDescription>Pickup: 123 Main St, Anytown USA</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="font-medium">Delivery Location</div>
+                      <div>456 Oak Rd, Anytown USA</div>
+                    </div>
+                    <div>
+                      <div className="font-medium">Status</div>
+                      <Badge variant="secondary">In Transit</Badge>
+                    </div>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm text-muted-foreground">Estimated Delivery: 30 mins</div>
+                    <Button variant="outline" size="sm">
+                      Track Delivery
+                    </Button>
+                  </div>
+                </CardFooter>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Delivery #5678</CardTitle>
+                  <CardDescription>Pickup: 789 Oak St, Anytown USA</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="font-medium">Delivery Location</div>
+                      <div>321 Elm Rd, Anytown USA</div>
+                    </div>
+                    <div>
+                      <div className="font-medium">Status</div>
+                      <Badge variant="secondary">Delivered</Badge>
+                    </div>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm text-muted-foreground">Delivered: 10 mins ago</div>
+                    <Button variant="outline" size="sm">
+                      View Details
+                    </Button>
+                  </div>
+                </CardFooter>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// Icon components
+function BoltIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+            <circle cx="12" cy="12" r="4" />
+    </svg>
+  );
+}
+
+function MapPinIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  );
+}
+
+function TruckIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+      <path d="M15 18H9" />
+      <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+      <circle cx="17" cy="18" r="2" />
+      <circle cx="7" cy="18" r="2" />
+    </svg>
+  );
+}
+
+function XIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M18 6L6 18" />
+      <path d="M6 6l12 12" />
+    </svg>
+  );
+}
